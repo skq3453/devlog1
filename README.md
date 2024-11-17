@@ -23,7 +23,7 @@ function lib:CreateWindow(title)
 	local UICorner_11 = Instance.new("UICorner")
 	
 	UI.Name = "UI"
-	UI.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+	UI.Parent = game:GetService("Players").LocalPlayer.PlayerGui or game:GetService("CoreGui")
 	UI.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 	UI.ResetOnSpawn = false
 
