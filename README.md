@@ -491,9 +491,7 @@ function lib:CreateWindow(title)
 			local percentage = math.clamp((currentValue - min) / (max - min), 0, 1)
 			Value.Text = string.format("%.1f", currentValue)
 			Draggable.Size = UDim2.new(percentage, 0, 1, 0)
-			if callback then
-				callback(currentValue)
-			end
+			callback(currentValue)
 		end
 
 		local function StartDragging(input)
@@ -529,7 +527,9 @@ function lib:CreateWindow(title)
 		end
 
 		Slider.MouseButton1Down:Connect(StartDragging)
+
 		UIS.InputChanged:Connect(UpdateDragging)
+
 		UIS.InputEnded:Connect(StopDragging)
 
 		UpdateSliderPosition()
